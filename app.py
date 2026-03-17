@@ -1,14 +1,6 @@
 import random
 import streamlit as st
-
-def get_range_for_difficulty(difficulty: str):
-    if difficulty == "Easy":
-        return 1, 20
-    if difficulty == "Normal":
-        return 1, 100
-    if difficulty == "Hard":
-        return 1, 50
-    return 1, 100
+from logic_utils import get_range_for_difficulty
 
 
 def parse_guess(raw: str):
@@ -19,6 +11,7 @@ def parse_guess(raw: str):
         return False, None, "Enter a guess."
 
     try:
+        # FIXME: Should check if number is in range
         if "." in raw:
             value = int(float(raw))
         else:
@@ -32,7 +25,7 @@ def parse_guess(raw: str):
 def check_guess(guess, secret):
     if guess == secret:
         return "Win", "🎉 Correct!"
-
+    
     try:
         if guess > secret:
             return "Too High", "📈 Go HIGHER!"
@@ -131,7 +124,7 @@ with col2:
 with col3:
     show_hint = st.checkbox("Show hint", value=True)
 
-if new_game:
+if new_game: # FIXME: New game starts but submit guess button won't work.
     st.session_state.attempts = 0
     st.session_state.secret = random.randint(1, 100)
     st.success("New game started.")

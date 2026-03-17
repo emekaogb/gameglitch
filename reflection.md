@@ -8,6 +8,7 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 - List at least two concrete bugs you noticed at the start  
   (for example: "the hints were backwards").
 
+It asked to guess a number from 1 to 100, and when I guessed my first number, it gave me a hint. However, I noticed when it said "Go Lower" it wasn't helping. I even submitted 1 as a guess and it still said go lower. That makes me think that the hints were backwards. Another bug I found was that the New Game button did not start a new game after winning. 
 ---
 
 ## 2. How did you use AI as a teammate?
